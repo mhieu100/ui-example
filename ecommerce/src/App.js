@@ -24,9 +24,9 @@ function App() {
   const isChat = location.pathname === '/chat';
 
   return (
-    <Layout className="h-screen bg-slate-50">
+    <Layout className="min-h-screen bg-slate-50 flex flex-col">
       <Header />
-      <Content className={`p-0 ${isChat ? 'h-[calc(100vh-64px)] overflow-hidden' : 'min-h-screen'}`}>
+      <Content className={`p-0 flex-1 ${isChat ? 'h-[calc(100vh-64px)] overflow-hidden' : ''}`}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
