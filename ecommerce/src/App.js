@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { Layout } from 'antd';
 import Header from './components/Layout/Header';
 import Footer from './components/Layout/Footer';
@@ -15,14 +15,18 @@ import ForgotPassword from './pages/ForgotPassword';
 import VerifyCode from './pages/VerifyCode';
 import ResetPassword from './pages/ResetPassword';
 import NotFound from './pages/NotFound';
+import Chat from './pages/Chat';
 
 const { Content } = Layout;
 
 function App() {
+  const location = useLocation();
+  const isChat = location.pathname === '/chat';
+
   return (
-    <Layout className="min-h-screen bg-slate-50">
+    <Layout className="h-screen bg-slate-50">
       <Header />
-      <Content className="p-0 min-h-screen">
+      <Content className={`p-0 ${isChat ? 'h-[calc(100vh-64px)] overflow-hidden' : 'min-h-screen'}`}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
@@ -35,10 +39,11 @@ function App() {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/verify-code" element={<VerifyCode />} />
           <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/chat" element={<Chat />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Content>
-      <Footer />
+      {!isChat && <Footer />}
     </Layout>
   );
 }

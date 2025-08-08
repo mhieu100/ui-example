@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Row, Col, Typography, Button, Card, Carousel, Badge, Rate, Tag, Avatar, Statistic } from 'antd';
-import { 
-  ArrowRightOutlined, ShoppingOutlined, TruckOutlined, FireOutlined, StarOutlined, 
+import {
+  ArrowRightOutlined, ShoppingOutlined, TruckOutlined, FireOutlined, StarOutlined,
   CrownOutlined, ThunderboltOutlined, HeartOutlined, PlayCircleOutlined,
   TrophyOutlined, TeamOutlined, GlobalOutlined, PhoneOutlined
 } from '@ant-design/icons';
@@ -187,64 +187,64 @@ const Home = () => {
     <div className="overflow-hidden">
       {/* Enhanced Hero Banner/Carousel */}
       <div className="relative">
-        <Carousel 
-          autoplay 
-          effect="fade" 
+        <Carousel
+          autoplay
+          effect="fade"
           dots={true}
           arrows={true}
           className="hero-carousel"
-          beforeChange={() => {}}
+          beforeChange={() => { }}
         >
           {bannerSlides.map((slide, index) => (
             <div key={slide.id}>
-              <div 
+              <div
                 className="relative h-96 md:h-[500px] lg:h-[600px] flex items-center"
                 style={{ background: slide.background }}
               >
                 <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-                <div 
+                <div
                   className="absolute inset-0 bg-cover bg-center opacity-20"
                   style={{ backgroundImage: `url(${slide.image})` }}
                 ></div>
-                
+
                 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                   <Row align="middle" className="min-h-full">
                     <Col xs={24} lg={12}>
                       <div className="text-white space-y-6">
-                        <Badge 
-                          count={slide.badge} 
-                          style={{ 
-                            backgroundColor: '#ff4d4f', 
+                        <Badge
+                          count={slide.badge}
+                          style={{
+                            backgroundColor: '#ff4d4f',
                             fontSize: '12px',
                             fontWeight: "bold",
                             borderRadius: '20px'
-                          }} 
+                          }}
                         />
-                        
+
                         <Title level={1} className="text-white text-3xl md:text-5xl lg:text-6xl font-bold mb-4">
                           {slide.title}
                         </Title>
-                        
+
                         <Title level={2} className="text-yellow-300 text-xl md:text-3xl mb-6">
                           {slide.subtitle}
                         </Title>
-                        
+
                         <Paragraph className="text-white text-lg md:text-xl mb-8 opacity-90 max-w-lg">
                           {slide.description}
                         </Paragraph>
-                        
+
                         <div className="flex flex-col sm:flex-row gap-4">
-                          <Button 
-                            type="primary" 
-                            size="large" 
+                          <Button
+                            type="primary"
+                            size="large"
                             icon={<ArrowRightOutlined />}
                             onClick={slide.buttonAction}
                             className="bg-white text-gray-800 border-white hover:bg-gray-100 h-12 px-8 text-lg font-medium"
                           >
                             {slide.buttonText}
                           </Button>
-                          <Button 
-                            size="large" 
+                          <Button
+                            size="large"
                             icon={<PlayCircleOutlined />}
                             className="border-white text-gray-600 hover:bg-white hover:text-gray-800 h-12 px-8"
                           >
@@ -272,22 +272,22 @@ const Home = () => {
               Explore our wide range of product categories and find exactly what you're looking for
             </Paragraph>
           </div>
-          
+
           <Row gutter={[24, 24]}>
             {categories.map((category) => (
               <Col xs={12} sm={8} lg={4} key={category.id}>
-                <Card 
+                <Card
                   hoverable
                   className="text-center border-0 shadow-md hover:shadow-xl transition-all duration-300 rounded-xl overflow-hidden group"
                   cover={
                     <div className="relative overflow-hidden">
-                      <img 
-                        src={category.image} 
+                      <img
+                        src={category.image}
                         alt={category.name}
                         className="h-32 w-full object-cover transition-transform duration-300 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-30 transition-all duration-300"></div>
-                      <div 
+                      <div
                         className="absolute inset-0 flex items-center justify-center"
                         style={{ color: category.color }}
                       >
@@ -321,27 +321,27 @@ const Home = () => {
               Don't miss out on these amazing deals and exclusive offers
             </Paragraph>
           </div>
-          
+
           <Row gutter={[24, 24]}>
             {promotions.map((promo) => (
               <Col xs={24} sm={8} key={promo.id}>
-                <Card 
+                <Card
                   className="text-center border-0 shadow-xl hover:shadow-2xl transition-all duration-300 rounded-xl overflow-hidden group"
                   style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)' }}
                 >
                   <div className="p-6">
-                    <div 
+                    <div
                       className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl text-white"
                       style={{ backgroundColor: promo.color }}
                     >
                       {promo.icon}
                     </div>
-                    
+
                     <Title level={3} className="mb-2">{promo.title}</Title>
                     <Paragraph className="text-gray-600 mb-4">{promo.description}</Paragraph>
-                    
+
                     <div className="mb-4">
-                      <Text 
+                      <Text
                         className="text-3xl font-bold"
                         style={{ color: promo.color }}
                       >
@@ -349,11 +349,11 @@ const Home = () => {
                       </Text>
                       <Text className="text-lg ml-1">OFF</Text>
                     </div>
-                    
+
                     <Tag color={promo.color} className="mb-4">{promo.timeLeft}</Tag>
-                    
-                    <Button 
-                      type="primary" 
+
+                    <Button
+                      type="primary"
                       size="large"
                       style={{ backgroundColor: promo.color, borderColor: promo.color }}
                       className="w-full"
@@ -381,7 +381,7 @@ const Home = () => {
               Handpicked products that our customers love the most
             </Paragraph>
           </div>
-          
+
           <Row gutter={[24, 24]} className="mb-8">
             {featuredProducts.map(product => (
               <Col xs={24} sm={12} lg={6} key={product.id}>
@@ -389,10 +389,10 @@ const Home = () => {
               </Col>
             ))}
           </Row>
-          
+
           <div className="text-center">
-            <Button 
-              type="primary" 
+            <Button
+              type="primary"
               size="large"
               icon={<ArrowRightOutlined />}
               onClick={() => navigate('/products')}
@@ -419,17 +419,17 @@ const Home = () => {
                   Fresh products just added to our collection
                 </Paragraph>
               </div>
-              
+
               <Row gutter={[16, 16]}>
                 {newArrivals.slice(0, 4).map(product => (
                   <Col xs={24} sm={12} key={product.id}>
-                    <Card 
+                    <Card
                       hoverable
                       className="border-0 shadow-sm hover:shadow-md transition-all duration-300 rounded-lg"
                     >
                       <div className="flex gap-3">
-                        <img 
-                          src={product.image} 
+                        <img
+                          src={product.image}
                           alt={product.name}
                           className="w-16 h-16 object-cover rounded-lg"
                         />
@@ -456,23 +456,23 @@ const Home = () => {
                   Most popular products loved by customers
                 </Paragraph>
               </div>
-              
+
               <Row gutter={[16, 16]}>
                 {bestSellers.slice(0, 4).map((product, index) => (
                   <Col xs={24} sm={12} key={product.id}>
-                    <Card 
+                    <Card
                       hoverable
                       className="border-0 shadow-sm hover:shadow-md transition-all duration-300 rounded-lg"
                     >
                       <div className="flex gap-3">
                         <div className="relative">
-                          <img 
-                            src={product.image} 
+                          <img
+                            src={product.image}
                             alt={product.name}
                             className="w-16 h-16 object-cover rounded-lg"
                           />
-                          <Badge 
-                            count={`#${index + 1}`} 
+                          <Badge
+                            count={`#${index + 1}`}
                             style={{ backgroundColor: '#faad14' }}
                             className="absolute -top-2 -right-2"
                           />
@@ -503,28 +503,28 @@ const Home = () => {
               Real reviews from real customers who love shopping with us
             </Paragraph>
           </div>
-          
+
           <Row gutter={[24, 24]}>
             {testimonials.map((testimonial) => (
               <Col xs={24} sm={8} key={testimonial.id}>
-                <Card 
+                <Card
                   className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl h-full"
                   style={{ background: 'linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%)' }}
                 >
                   <div className="text-center mb-4">
-                    <Avatar 
-                      size={64} 
-                      src={testimonial.avatar} 
+                    <Avatar
+                      size={64}
+                      src={testimonial.avatar}
                       className="mb-3"
                     />
                     <Title level={5} className="mb-1">{testimonial.name}</Title>
                     <Rate disabled defaultValue={testimonial.rating} className="text-sm" />
                   </div>
-                  
+
                   <Paragraph className="text-gray-600 text-center mb-4 italic">
                     "{testimonial.comment}"
                   </Paragraph>
-                  
+
                   <div className="text-center">
                     <Tag color="blue">{testimonial.product}</Tag>
                   </div>
@@ -545,24 +545,24 @@ const Home = () => {
                   About ShopHub
                 </Title>
                 <Paragraph className="text-gray-300 text-lg mb-6">
-                  Since 2016, ShopHub has been your trusted partner in online shopping. We're committed to 
+                  Since 2016, ShopHub has been your trusted partner in online shopping. We're committed to
                   providing high-quality products, exceptional customer service, and an unmatched shopping experience.
                 </Paragraph>
                 <Paragraph className="text-gray-300 text-lg mb-8">
-                  Our mission is to make quality products accessible to everyone, everywhere. With over 50,000 
+                  Our mission is to make quality products accessible to everyone, everywhere. With over 50,000
                   satisfied customers and growing, we continue to innovate and improve our services.
                 </Paragraph>
-                
+
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button 
-                    type="primary" 
+                  <Button
+                    type="primary"
                     size="large"
                     icon={<ArrowRightOutlined />}
                     className="bg-blue-600 border-blue-600 hover:bg-blue-700"
                   >
                     Learn More About Us
                   </Button>
-                  <Button 
+                  <Button
                     size="large"
                     icon={<PhoneOutlined />}
                     className="border-white text-white hover:bg-white hover:text-gray-800"
@@ -572,19 +572,19 @@ const Home = () => {
                 </div>
               </div>
             </Col>
-            
+
             <Col xs={24} lg={12}>
               <Row gutter={[24, 24]}>
                 {brandStats.map((stat, index) => (
                   <Col xs={12} sm={6} lg={12} key={index}>
-                    <Card 
+                    <Card
                       className="text-center border-0 bg-white bg-opacity-10 backdrop-blur-sm rounded-xl"
                       style={{ borderColor: 'rgba(255,255,255,0.2)' }}
                     >
                       <div className="text-3xl text-blue-400 mb-2">
                         {stat.icon}
                       </div>
-                      <Statistic 
+                      <Statistic
                         title={<span className="text-gray-300 text-sm">{stat.title}</span>}
                         value={stat.value}
                         suffix={<span className="text-white">{stat.suffix}</span>}
@@ -608,18 +608,18 @@ const Home = () => {
           <Paragraph className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
             Subscribe to our newsletter and be the first to know about new products, exclusive deals, and special promotions.
           </Paragraph>
-          
+
           <div className="max-w-md mx-auto">
             <div className="flex gap-2">
-              <input 
-                type="email" 
+              <input
+                type="email"
                 placeholder="Enter your email address"
-                className="flex-1 px-4 py-3 rounded-lg border-0 text-gray-800 text-lg"
+                className="outline-none flex-1 px-4 py-2 rounded-lg border-0 text-gray-800 text-lg"
               />
-              <Button 
-                type="primary" 
+              <Button
+                type="primary"
                 size="large"
-                className="bg-yellow-500 border-yellow-500 hover:bg-yellow-600 text-gray-800 font-medium px-8"
+                className="bg-yellow-500 border-yellow-500 hover:bg-yellow-600 text-gray-800 font-medium px-8 py-6"
               >
                 Subscribe
               </Button>
